@@ -28,6 +28,24 @@ def main():
         print('the Secret Number is {}'.format(secretNum))  # TODO remove after testing
         print('You have {} guesses to solve it.'.format(MAX_GUESSES))
 
+        numGuesses = 1
+        while numGuesses <= MAX_GUESSES:
+            guess = ''
+            while len(guess) != NUM_DIGITS or not guess.isdecimal():
+                print('Guess #{} '.format(numGuesses))
+                guess = input('> ')
+
+            clues = getClues(guess, secretNum)
+            print(clues)
+            numGuesses += 1
+
+            if guess == secretNum:
+                break
+            if numGuesses > MAX_GUESSES:
+                print("You are out of guesses")
+                print("The answer was {}".format(secretNum))
+
+
 
 def getSecretNum():
     """returns a string of NUM_DIGITS unique random digits"""
