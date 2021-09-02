@@ -40,6 +40,7 @@ def main():
             numGuesses += 1
 
             if guess == secretNum:
+                print('You guessed it!')
                 break
             if numGuesses > MAX_GUESSES:
                 print("You are out of guesses")
@@ -57,6 +58,21 @@ def getSecretNum():
         secretNum += str(numbers[i])
     return secretNum
 
+def getClues(guess, secretNum):
+
+    if guess == secretNum:
+        return('You got it!')
+
+    clues = []
+
+    for i in range(len(guess)):
+        if guess[i] == secretNum[i]:
+            clues.append('Fermi')
+        elif guess[i] in secretNum:
+            clues.append('Pico')
+
+    if len(clues) == 0:
+        return('Bagels - No correct numbers')
 
 if __name__ == '__main__':
     main()
