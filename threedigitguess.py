@@ -10,6 +10,34 @@ NUM_DIGITS = 3
 MAX_GUESSES = 10
 
 
+def getSecretNum():
+    """returns a string of NUM_DIGITS unique random digits"""
+
+    numbers = list('0123456789')
+    random.shuffle(numbers)
+    secretNum = ''
+    for i in range(NUM_DIGITS):
+        secretNum += str(numbers[i])
+    return secretNum
+
+
+def getClues(guess, secretNum):
+
+    if guess == secretNum:
+        return 'You got it!'
+
+    clues = []
+
+    for i in range(len(guess)):
+        if guess[i] == secretNum[i]:
+            clues.append('Fermi')
+        elif guess[i] in secretNum:
+            clues.append('Pico')
+
+    if len(clues) == 0:
+        return 'Bagels - No correct numbers'
+
+
 def main():
     print('''Bagels - a deductive logic game (originally by Al Sweigart).
 
@@ -46,33 +74,6 @@ def main():
                 print("You are out of guesses")
                 print("The answer was {}".format(secretNum))
 
-
-
-def getSecretNum():
-    """returns a string of NUM_DIGITS unique random digits"""
-
-    numbers = list('0123456789')
-    random.shuffle(numbers)
-    secretNum = ''
-    for i in range(NUM_DIGITS):
-        secretNum += str(numbers[i])
-    return secretNum
-
-def getClues(guess, secretNum):
-
-    if guess == secretNum:
-        return('You got it!')
-
-    clues = []
-
-    for i in range(len(guess)):
-        if guess[i] == secretNum[i]:
-            clues.append('Fermi')
-        elif guess[i] in secretNum:
-            clues.append('Pico')
-
-    if len(clues) == 0:
-        return('Bagels - No correct numbers')
 
 if __name__ == '__main__':
     main()
