@@ -5,6 +5,9 @@ by the famous Al Sweigart
 """
 
 import random
+import logging
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime) s - %(levelname) s - %(message) s')
 
 NUM_DIGITS = 3
 MAX_GUESSES = 10
