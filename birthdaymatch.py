@@ -30,7 +30,7 @@ def geMatch(birthdays):
         for b, birthdayB in enumerate(birthdays[a+1:]):
             if birthdayA == birthdayB:
                 return birthdayA  #
-def main():
+def progloop():
     print('''Birthday Paradox, by Al Sweigart al@inventwithpython.com
     The Birthday Paradox shows us that in a group of N people, the odds
     that two of them have matching birthdays is surprisingly large.
@@ -50,14 +50,25 @@ def main():
             break
     print()
 
+    # Generate and display birthdays
+
+    print('There are ', numBDays, ' birthdays:')
+    for i, birthday in enumerate(birthdays):
+        if i !=0:
+            print(', ', end="")
+            monthName = MONTHS[birthday.month -1]
+            dateText = '{} {}'.format(monthName, birthday.day)
+            print(dateText, end='')
+    print()
 
 
+# def main():
+#    getBirthdays()
+#    progloop()
 
-    fortybirthdays = getBirthdays(40)
-    print(fortybirthdays)
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()
 
 
 
