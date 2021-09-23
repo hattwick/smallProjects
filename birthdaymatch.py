@@ -11,9 +11,10 @@ Tags: short, math, simulation
 
 import datetime, random
 
+
 def getBirthdays(numberOfBirthdays):
     """Return a list of number random date objects for birthday match algorithms"""
-    birthdays =[]
+    birthdays = []
     for i in range(numberOfBirthdays):
         startOfYear = datetime.date(2001, 1, 1)
         randomNumberOfDays = datetime.timedelta(random.randint(0, 364))
@@ -21,44 +22,62 @@ def getBirthdays(numberOfBirthdays):
         birthdays.append(birthday)
     return birthdays
 
+
 def geMatch(birthdays):
     """ Return date object of any birthday that occurs more than once."""
-    if len(birthdays)== let(set(birthdays)):
+    if len(birthdays) == let(set(birthdays)):
         return None  # all birthdays are unique in this set
 
     for a, birthdayA in enumerate(birthdays):
-        for b, birthdayB in enumerate(birthdays[a+1:]):
+        for b, birthdayB in enumerate(birthdays[a + 1 :]):
             if birthdayA == birthdayB:
                 return birthdayA  #
+
+
 def progloop():
-    print('''Birthday Paradox, by Al Sweigart al@inventwithpython.com
+    print(
+        """Birthday Paradox, by Al Sweigart al@inventwithpython.com
     The Birthday Paradox shows us that in a group of N people, the odds
     that two of them have matching birthdays is surprisingly large.
     This program does a Monte Carlo simulation (that is, repeated random
     simulations) to explore this concept.
    
     It's not actually a paradox, it's just a surprising result.)
-    47. ''')
+    47. """
+    )
 
-    MONTHS = ('Jan', 'Feb',  'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov','Dec')
+    MONTHS = (
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+    )
 
     while True:
-        print('How many birthdays to generate? (Recommended 100 max)')
-        response = input('> ')
-        if response.isdecimal() and (0<int(response) <= 100):
+        print("How many birthdays to generate? (Recommended 100 max)")
+        response = input("> ")
+        if response.isdecimal() and (0 < int(response) <= 100):
             numBDays = int(response)
             break
     print()
 
     # Generate and display birthdays
 
-    print('There are ', numBDays, ' birthdays:')
+    print("There are ", numBDays, " birthdays:")
     for i, birthday in enumerate(birthdays):
-        if i !=0:
-            print(', ', end="")
-            monthName = MONTHS[birthday.month -1]
-            dateText = '{} {}'.format(monthName, birthday.day)
-            print(dateText, end='')
+        if i != 0:
+            print(", ", end="")
+            monthName = MONTHS[birthday.month - 1]
+            dateText = "{} {}".format(monthName, birthday.day)
+            print(dateText, end="")
     print()
 
 
@@ -67,10 +86,5 @@ def progloop():
 #    progloop()
 
 
-#if __name__ == '__main__':
+# if __name__ == '__main__':
 #    main()
-
-
-
-
-
