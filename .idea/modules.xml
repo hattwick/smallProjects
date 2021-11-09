@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/smallProjects.iml" filepath="$PROJECT_DIR$/.idea/smallProjects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../junk-delete/.idea/smallProjects.iml" filepath="$PROJECT_DIR$/../junk-delete/.idea/smallProjects.iml" />
     </modules>
   </component>
 </project>
